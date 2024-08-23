@@ -12,7 +12,7 @@ async function page() {
         return(
         <Link key={item.id} href={`/detail/${item.id}`}>
         <div className='w-full bg-[#ececec] flex flex-col justify-center items-center cursor-pointer'>
-        <img className='w-[300px] h-[300px]' src={item.url} alt=""/>
+        <img className='w-[300px] h-[250px]' src={item.url} alt=""/>
         <div className='p-3'>
         <h3 className='font-bold'>{item.name}</h3>
         </div>

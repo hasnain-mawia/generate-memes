@@ -48,13 +48,15 @@ const Detail = (response:any) => {
             {!gen ? (
                 <>
                 <Link href={'/'} className='px-3 py-2 rounded-[30px] bg-[green] text-white absolute left-10 top-10'>Back</Link>
-                <div className="w-[90%] sm:w-[40%] mx-auto flex flex-col justify-center items-center gap-3">
-                <img className="w-[600px] h-[600px] shadow-2xl " src={response.response[0].url} alt="Meme" />
-                <div className="w-[80%]">
+                <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-2 justify-center items-center gap-3">
+                <img className="w-[600px] h-[500px] shadow-2xl " src={response.response[0].url} alt="Meme" />
+                <div className="flex flex-col gap-5">
+                    <h2 className="text-[30px] font-semibold">Generate Memes</h2>
+                <div className="w-full">
                 <input className={`p-3 bg-[#e5e5e5] rounded-[5px] w-full border-[1px] ${errors.text1 ? 'border-[red]' : 'border-[green]'}`} placeholder="Write Text 1" onChange={(e: any) => setvalues({ ...values, text1: e.target.value })} value={values.text1} />
                 {errors.text1 && <span className='text-[14px] text-[red]'>{errors.text1}</span>}
                 </div>
-                <div className="w-[80%]">
+                <div className="w-full">
                 <input className={`p-3 bg-[#e5e5e5] rounded-[5px] w-full border-[1px] ${errors.text2 ? 'border-[red]' : 'border-[green]'}`} placeholder="Write Text 2" onChange={(e: any) => setvalues({ ...values, text2: e.target.value })} value={values.text2}/>
                 {errors.text2 && <span className='text-[14px] text-[red]'>{errors.text2}</span>}
                 </div>
@@ -64,11 +66,12 @@ const Detail = (response:any) => {
                     <SpinnerButton Loading={spinBtn} onClick={submitData} className='bg-[#b2b2b2] px-4 py-3 rounded-[30px] text-white flex items-center w-[200px] justify-center' disabled title="Generate Meme"/>
                 }
                 </div>
+                </div>
                 </>
             ):(
                 <div className="w-full mx-auto flex flex-col justify-center items-center relative h-full">
                     <img className="w-[600px] h-[600px]" src={gen.data.url} alt="Meme"/>
-                    <a onClick={DownloadImg} className="absolute bottom-0 bg-[green] hover:bg-[#40a5e4] text-white text-[26px] duration-150 p-3 rounded-[30px] cursor-pointer"><MdDownload /></a>
+                    <a onClick={DownloadImg} className="absolute bottom-0 bg-[green] hover:bg-[#40a5e4] text-white text-[26px] duration-150 p-3 rounded-[30px] cursor-pointer animate-bounce"><MdDownload /></a>
                 </div>
             )}
         </div>
